@@ -19,21 +19,43 @@
 # OPERADORES EN PYTHON
 
 #Operadores aritméticos
-
 # → suma
 suma = 10 + 5
-print(f'la suma es: {suma}')
+print(f'suma = {suma}')
 
+# → resta
+resta = 10-20
+print(f'resta = {resta}')
+
+# → multiplicación
+multiplicacion = 4 * 4
+print(f'multiplicacion = {multiplicacion}')
+
+# / → división (devuelve float)
+division = 10 / 7
+print(f'division = {division}')
+
+# // → división entera
+division_entera = 10 // 7
+print(f'division entera = {division_entera}')
+
+# % → módulo (resto)
+resto = 10 % 7
+print(f'modulo = {resto}')
+
+# ** → potencia
+potencia = 2**2
+print(f'potencia = {potencia}')
+
+# @ → multiplicación matricial
 
 '''
-→ resta
 
-→ multiplicación
-/ → división (devuelve float)
-// → división entera
-% → módulo (resto)
-** → potencia
-@ → multiplicación matricial
+
+
+
+
+
 
 Operadores de asignación
 = → asignación simple
