@@ -147,24 +147,41 @@ print(f'el numero {num1} <= {num2} = {num1 <= num2}')
 
 # Operadores lógicos
 # and → AND lógico
+a = 1
+b = 1
+c = 2
+print(f'a=b y b=c / donde a=1, b=1 y c=2:  {(a == b) and (b == c)}')
+
 # or → OR lógico
+print(f'a=b o b=c / donde a=1, b=1 y c=2:  {(a == b) or (b == c)}')
+
 # not → negación lógica
+print(f'NOT (a=b o b=c) / donde a=1, b=1 y c=2:  {not((a == b) or (b == c))}')
+
 
 # Operadores de identidad
 # is → verifica si son el mismo objeto
+lista1 = [10, 20, 30]
+lista2 = lista1
+print(f'lista1 es el mismo objeto que lista2 = {lista1 is lista2}')
+
 # is not → verifica si no son el mismo objeto
+print(f'lista1 NO es el mismo objeto que lista2 = {lista1 is not lista2}')
 
 # Operadores de pertenencia
 # in → verifica pertenencia
+print(f'20 esta en lista1 = {20 in lista1}')
+
 # not in → verifica no pertenencia
+print(f'20 NO esta en lista1 = {20 not in lista1}')
 
 # Operadores bit a bit
 # & → AND bit a bit
 # | → OR bit a bit
 # ^ → XOR bit a bit
 # ~ → NOT bit a bit (inversión)
-# << → desplazamiento izquierda
 
+# << → desplazamiento izquierda
 # → desplazamiento derecha
 
 # Operador condicional (ternario)
