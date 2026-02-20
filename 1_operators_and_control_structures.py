@@ -343,21 +343,40 @@ print(f'prueba assert = {prueba_assert}')
 assert prueba_assert == 100, 'error, prueba assert debe ser 1000'
 
 
-
-
-
 # 5. EMPAREJAMIENTO DE PATRONES ESTRUCTURALES (Python 3.10+)
 # match: Sujeto a comparar.
+reporte_clima = ['lluvia', 15]
+
+match reporte_clima:
+    case [tipo_clima, temperatura] if temperatura <= 15:
+        print(f'{tipo_clima} fría, ¡usa paraguas y abrigo!')
+    case [tipo_clima, temperatura] if temperatura > 15:
+        print(f'{tipo_clima} templada')
+    case _:
+        print('No está lloviendo')
+
 # case: Patrón específico a evaluar.
-
-
+switch = 20
+match switch:
+    case 10:
+        print('hola')
+    case 20:
+        print('encontrado valor')
+    case _:
+        print('valor no encontrado')
 
 
 # 6. GESTIÓN DE CONTEXTO Y RECURSOS
 # with: Administra recursos (abrir/cerrar) de forma segura.
+with open("hola.txt", "w") as f:
+    f.write("Guardando datos de forma segura")
+    print('archivo creado')
 
-
-
+# Elimino el archivo para no dejar basura, se crea y elimina por temas educativos. 
+import os
+if os.path.exists("hola.txt"):
+    os.remove("hola.txt")
+    print('Archivo eliminado del sistema.')
 
 # 7. CONTROL ASÍNCRONO (CONCURRENCIA)
 # async for: Itera sobre iterables asíncronos.
@@ -365,13 +384,10 @@ assert prueba_assert == 100, 'error, prueba assert debe ser 1000'
 # await: Pausa la ejecución hasta que una tarea asíncrona finalice.
 
 
-
-
 # 8. RETORNO Y GENERADORES
 # return: Sale de una función devolviendo un valor.
 # yield: Pausa una función devolviendo un valor (generador).
 # yield from: Delega la generación a otro iterable o subgenerador.
-
 
 
 # 9. OTROS
