@@ -386,9 +386,40 @@ if os.path.exists("hola.txt"):
 
 # 8. RETORNO Y GENERADORES
 # return: Sale de una función devolviendo un valor.
+def suma(numx, numy):
+    return (numx + numy)
+
+print(f'la suma de 10 + 40 = {suma(10,40)}')
+
 # yield: Pausa una función devolviendo un valor (generador).
+def entrega_datos():
+    for i in range(5):
+        yield i
+
+e_datos = entrega_datos()
+print(f'prueba yield, entrega dato = {next(e_datos)}')
+print('hago otra cosa en el programa')
+print(f'prueba yield, pido dato siguiente = {next(e_datos)}')
+
+
 # yield from: Delega la generación a otro iterable o subgenerador.
+def entrega_datos_2():
+    lista_ed = ['ivan', 'juan', 'karen']
+    for elemento in lista_ed:
+        yield elemento
+
+def entrega_datos_3():
+    yield from entrega_datos()
+    yield from entrega_datos_2()
+
+ee_datos = entrega_datos_3()
+for i in range(8):
+    print(f'prueba yield from, entrega de datos = {next(ee_datos)}')
+
 
 
 # 9. OTROS
 # pass: Sentencia nula que sirve como marcador de posición.
+
+def funcion_prueba():
+    pass
