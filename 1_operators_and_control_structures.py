@@ -378,10 +378,7 @@ if os.path.exists("hola.txt"):
     os.remove("hola.txt")
     print('Archivo eliminado del sistema.')
 
-# 7. CONTROL ASÍNCRONO (CONCURRENCIA)
-# async for: Itera sobre iterables asíncronos.
-# async with: Gestiona contextos asíncronos.
-# await: Pausa la ejecución hasta que una tarea asíncrona finalice.
+
 
 
 # 8. RETORNO Y GENERADORES
@@ -423,3 +420,46 @@ for i in range(8):
 
 def funcion_prueba():
     pass
+
+
+# 10. CONTROL ASÍNCRONO (CONCURRENCIA)
+# async for: Itera sobre iterables asíncronos.
+# async with: Gestiona contextos asíncronos.
+# await: Pausa la ejecución hasta que una tarea asíncrona finalice.
+
+import asyncio
+import random
+
+async def sensor1():
+    '''Simulación; Sensor envia datos cada 1-5 segundos al sistema...'''
+    for i in range (1, 11):
+        t_espera = random.randint(1,5)
+        await asyncio.sleep(t_espera)
+        yield random.randint(1,10), i, t_espera
+
+async def sensor2():
+    '''Simulación; Sensor envia datos cada 1-2 segundos al sistema...'''
+    for i in range (1, 11):
+        t_espera = random.randint(1,2)
+        await asyncio.sleep(t_espera)
+        yield random.randint(50,70), i, t_espera
+
+async def lee_sensores(nombre, sensor):
+    """
+    Recibe una función sensor (async generator) y la ejecuta.
+    Itera sobre los datos que el sensor va generando.
+    """
+    async for dato in sensor():  # Aquí se llama a la función sensor()
+        print(f"{nombre} → iteración: {dato[1]} - dato: {dato[0]} (tiempo de espera: {dato[2]} s.)")
+    
+async def main():
+    print('*** Inicio Simulación ***')
+
+    tarea1 = asyncio.create_task(lee_sensores("S1", sensor1))
+    tarea2 = asyncio.create_task(lee_sensores("S2", sensor2))
+    await asyncio.gather(tarea1, tarea2)
+    
+    print('+++ Fin Simulación +++')
+
+if __name__ == "__main__":
+    asyncio.run(main())
