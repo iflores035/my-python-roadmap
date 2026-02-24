@@ -29,17 +29,90 @@
 # - Definición con def
 # - Llamada / invocación de la función
 # - Bloque de código reutilizable
-# - Documentación con docstrings ("""comentario""")
 # - Diferencia entre función y procedimiento (retorna valor o no)
+# - Documentación con docstrings ("""comentario""")
+
+def saludo():
+    '''Saluda al usuario al ingresar al sistema.'''
+    print(f'Hola... ¿como estas?')
+
+saludo()
+
 
 # 2️⃣ Tipos de Funciones según parámetros y retorno
 # 1. Sin parámetros ni retorno
+saludo()
+
 # 2. Con uno o varios parámetros, sin retorno
+def saludo_personalizado(nombre):
+    '''Saluda al usuario al ingresar al sistema
+
+       Parámetros:
+       nombre (string) = nombre del usuario
+       '''
+    
+    print(f'Hola {nombre}... ¿como estas?')
+
+saludo_personalizado('Karen')
+
+
 # 3. Con parámetros y retorno
+def saludo_especial(name):
+    '''Crea mensaje de saludo al usuario
+    
+    Parámetros:
+    nombre (str) = nombre del usuario
+
+    Retorna:
+    str: mensaje de saludo al usuario
+    '''
+    return f'hola {name}... ¿estas bien?'
+
+print(saludo_especial('Iván'))
+
+
 # 4. Con parámetros por defecto
+def saludo_porDefecto(nombre = 'Visita'):
+    '''Saluda al usuario con ingresa al sistema
+
+    Parameters:
+    nombre (str) = nombre del usuario, por defecto 'Visita'
+    '''
+    print (f'Hola {nombre}, bienvenido')
+
+saludo_porDefecto()
+saludo_porDefecto('Erwin')
+
+
 # 5. Con número variable de argumentos (*args)
+def saludo_personas(*personas):
+    '''Saluda a varias personas que ingresan al sistema
+    
+    Parameters:
+    *personas (str) = nombre de las personas, recibido como tupla
+    '''
+    for persona in personas:
+        print(f'Hola {persona}... saludos.')
+
+saludo_personas('ivan', 'andrea', 'michelle')
+
 # 6. Con argumentos nombrados variables (**kwargs)
+def informacion_persona(**kwargs):
+    '''
+    Imprime información de una persona dada
+
+    Parameters:
+    **kwargs = nombre y edad, recibido como diccionario 
+    '''
+    print(f"nombre: {kwargs['nombre']}, edad: {kwargs['edad']}")
+
+datos = {'nombre': 'ivan',
+         'edad': 50}
+informacion_persona(**datos)
+
 # 7. Combinación de obligatorios, por defecto, *args y **kwargs
+
+
 
 # 3️⃣ Funciones anidadas
 # - Funciones dentro de funciones
