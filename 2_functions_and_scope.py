@@ -174,20 +174,74 @@ print(f'resultado = {s(10)}')
 
 # 4️⃣ Variables en funciones
 # - Variables locales: existen solo dentro de la función
+def ejvlocal():
+    a = 1
+    return a
+
+# a += 1   --- esto genera error por que es una variable local
+print(f'prueba de variable local: {ejvlocal()}')
+
+
 # - Variables globales: definidas fuera de la función
+vg = 1 #global
+
+def ejvglobal():
+    vg = 2
+    return vg
+
+print(f'variables global: {vg}')
+print(f'retorno de la función: {ejvglobal()}')
+print(f'nuevo valor de variable: {vg}')
+
 # - Uso de global para modificar variables globales
+vg2 = 1 #global
+
+def ejvglobal2():
+    global vg2
+    vg2 = 2
+    return vg2
+
+print(f'variables global: {vg2}')
+print(f'retorno de la función: {ejvglobal2()}')
+print(f'nuevo valor de variable: {vg2}')
+
 # - Diferencia entre local, global y nonlocal
+varglob = 'global' # global
+
+def diflgn():
+    varloc = 'local'
+    varnoloc = 'aaa'
+
+    def interior():
+        nonlocal varnoloc
+        varnoloc = 'no local'
+        return varnoloc
+    
+    interior()
+    return varloc, varnoloc
+
+print (f'variable global = {varglob}')
+print (f'variables local = {diflgn()}')
+
 
 # 5️⃣ Funciones lambda (anónimas)
 # - Funciones de una sola línea
+suma = lambda numero: numero + 1
+print (f'suma = {suma(5)}')
+
+persona = lambda nombre, edad : print(f'Nombre: {nombre} edad: {edad}')
+persona('ivan', 50)
+
 # - Uso con map, filter, sorted, reduce
 # - Diferencias con funciones normales
+
 
 # 6️⃣ Funciones incorporadas de Python (built-in)
 # - Funciones de tipo y estructura: len(), type(), range(), sorted()
 # - Funciones matemáticas: sum(), max(), min(), abs()
 # - Funciones de comprobación: isinstance(), all(), any()
 # - Otras útiles: enumerate(), zip(), reversed()
+
 
 # 7️⃣ Funciones recursivas
 # - Función que se llama a sí misma
