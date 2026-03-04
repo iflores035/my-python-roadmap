@@ -317,6 +317,13 @@ print(f'revierte orden de la lista {nombres}, quedando asi {list(reversed(nombre
 # - Función que se llama a sí misma
 # - Caso base obligatorio
 # - Ejemplo clásico: factorial o Fibonacci
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+print(f'factorial de 3 = {factorial(3)}')
+
 
 # 8️⃣ Funciones como objetos
 # - Asignación de funciones a variables
